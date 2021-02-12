@@ -1,0 +1,16 @@
+<h1>All Students</h1>
+
+<ul>
+  <table>
+  <% @student.each do |student| %>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= student.name %></td>
+      <td><%= student.sem %></td>
+      <td><%= student.gender %></td>
+      <td><%= student.address %></td>
+      <td><%= student.password %></td>
+    </tr>
+  <% end %>
+  </table>
+</ul>
