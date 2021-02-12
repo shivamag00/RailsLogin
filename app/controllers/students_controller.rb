@@ -12,15 +12,14 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to root_path
+      redirect_to login_path, notice: "Created id - #{@student.id}"
     else
       render :new
     end
   end
 
   def show
-    @student = Student.find(params[:id])
-    render plain: @student.name
+    @student = Student.all
   end
 
   private
