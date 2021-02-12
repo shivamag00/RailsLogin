@@ -10,6 +10,14 @@
   </div>
 
   <div>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+    <% @student.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.label :sem %><br>
     <%= form.text_area :sem %>
     <% @student.errors.full_messages_for(:sem).each do |message| %>
