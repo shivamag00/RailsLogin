@@ -1,6 +1,9 @@
 class StudentsController < ApplicationController
 
-  def index; end
+  def current_user
+    @current_user ||= Student.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
 
   def new
     @student = Student.new
