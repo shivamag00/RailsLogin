@@ -1,6 +1,6 @@
 <h1>New Student SignUp</h1>
 
-<%= form_with model: @student do |form| %>
+<%= form_with(model: @student, id: "new-student", local: false) do |form| %>
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -54,3 +54,17 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+window.addEventListener("load", () => {
+  const element = document.querySelector("#new-student");
+  element.addEventListener("ajax:success", (event) => {
+    const [_data, _status, xhr] = event.detail;
+    element.insertAdjacentHTML("beforeend", xhr.responseText);
+  });
+  element.addEventListener("ajax:error", () => {
+    element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
+  });
+});
+</script>
+
