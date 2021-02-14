@@ -18,6 +18,15 @@
   </div>
 
   <div>
+    <%= form.label :confirm_password %><br>
+    <%= form.password_field :password_confirmation %>
+    <% @student.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
     <%= form.label :sem %><br>
     <%= form.text_area :sem %>
     <% @student.errors.full_messages_for(:sem).each do |message| %>
