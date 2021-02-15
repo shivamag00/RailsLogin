@@ -1,16 +1,21 @@
 
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <% flash.each do |type, msg| %>
+        <div>
+          <%= msg %>
+        </div>
+      <% end %>
+
+
+      <% if current_user %>
+        Logged in as <%= current_user.name %>.
+        <%= link_to "Log Out", logout_path %>
+      <% else %>
+        Please Login...
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-
-<% if current_user %>
-  Logged in as <%= current_user.name %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", new_student_path %> or
-  <%= link_to "Log In", login_path %>
-<% end %>
+</div>
 

@@ -1,70 +1,76 @@
-<h1>New Student SignUp</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>New Student SignUp</h1>
 
-<%= form_with(model: @student, id: "new-student", local: false) do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @student.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+      <%= form_with(model: @student, id: "new-student", local: false) do |form| %>
+        <div class="form-group">
+          <%= form.label :name %><br>
+          <%= form.text_field :name %>
+          <% @student.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :password %><br>
+          <%= form.password_field :password %>
+          <% @student.errors.full_messages_for(:password).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :confirm_password %><br>
+          <%= form.password_field :password_confirmation %>
+          <% @student.errors.full_messages_for(:password_confirmation).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+
+        <div>
+          <%= form.label :sem %><br>
+          <%= form.text_area :sem %>
+          <% @student.errors.full_messages_for(:sem).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :gender %><br>
+          <%= form.text_area :gender %>
+          <% @student.errors.full_messages_for(:gender).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :address %><br>
+          <%= form.text_area :address %>
+          <% @student.errors.full_messages_for(:address).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
+
+      <script>
+      window.addEventListener("load", () => {
+        const element = document.querySelector("#new-student");
+        element.addEventListener("ajax:success", (event) => {
+          const [_data, _status, xhr] = event.detail;
+          element.insertAdjacentHTML("beforeend", xhr.responseText);
+        });
+        element.addEventListener("ajax:error", () => {
+          element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
+        });
+      });
+      </script>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :password %><br>
-    <%= form.password_field :password %>
-    <% @student.errors.full_messages_for(:password).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :confirm_password %><br>
-    <%= form.password_field :password_confirmation %>
-    <% @student.errors.full_messages_for(:password_confirmation).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-
-  <div>
-    <%= form.label :sem %><br>
-    <%= form.text_area :sem %>
-    <% @student.errors.full_messages_for(:sem).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :gender %><br>
-    <%= form.text_area :gender %>
-    <% @student.errors.full_messages_for(:gender).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :address %><br>
-    <%= form.text_area :address %>
-    <% @student.errors.full_messages_for(:address).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<script>
-window.addEventListener("load", () => {
-  const element = document.querySelector("#new-student");
-  element.addEventListener("ajax:success", (event) => {
-    const [_data, _status, xhr] = event.detail;
-    element.insertAdjacentHTML("beforeend", xhr.responseText);
-  });
-  element.addEventListener("ajax:error", () => {
-    element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
-  });
-});
-</script>
+</div>
 
