@@ -39,15 +39,20 @@
 
       <% end %>
 
+      <br>
+      <div id="alert" class="alert alert-primary" role="alert">
+      </div>
+
+
       <script>
       window.addEventListener("load", () => {
         const element = document.querySelector("#new-student");
         element.addEventListener("ajax:success", (event) => {
           const [_data, _status, xhr] = event.detail;
-          element.insertAdjacentHTML("beforeend", xhr.responseText);
+          document.getElementById('alert').innerHTML=xhr.responseText;
         });
         element.addEventListener("ajax:error", () => {
-          element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
+            document.getElementById('alert').innerHTML='ERROR. Some error has occurred. Try Again later.';
         });
       });
       </script>
