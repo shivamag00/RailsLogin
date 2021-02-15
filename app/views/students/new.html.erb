@@ -6,56 +6,37 @@
       <%= form_with(model: @student, id: "new-student", local: false) do |form| %>
         <div class="form-group">
           <%= form.label :name %><br>
-          <%= form.text_field :name %>
-          <% @student.errors.full_messages_for(:name).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.text_field :name, class: 'form-control' %>
         </div>
 
-        <div>
+        <div class="form-group">
           <%= form.label :password %><br>
-          <%= form.password_field :password %>
-          <% @student.errors.full_messages_for(:password).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.password_field :password, class: 'form-control' %>
         </div>
 
-        <div>
+        <div class="form-group">
           <%= form.label :confirm_password %><br>
-          <%= form.password_field :password_confirmation %>
-          <% @student.errors.full_messages_for(:password_confirmation).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.password_field :password_confirmation, class: 'form-control' %>
         </div>
 
 
-        <div>
+        <div class="form-group">
           <%= form.label :sem %><br>
-          <%= form.text_area :sem %>
-          <% @student.errors.full_messages_for(:sem).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.text_area :sem, class: 'form-control' %>
         </div>
 
-        <div>
+        <div class="form-group">
           <%= form.label :gender %><br>
-          <%= form.text_area :gender %>
-          <% @student.errors.full_messages_for(:gender).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.text_area :gender, class: 'form-control' %>
         </div>
 
-        <div>
+        <div class="form-group">
           <%= form.label :address %><br>
-          <%= form.text_area :address %>
-          <% @student.errors.full_messages_for(:address).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.text_area :address, class: 'form-control' %>
         </div>
 
-        <div>
-          <%= form.submit %>
-        </div>
+        <%= form.submit 'Submit', :class=> 'btn btn-primary' %>
+
       <% end %>
 
       <script>
