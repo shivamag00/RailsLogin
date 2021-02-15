@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       # redirect_to login_path, notice: "Created id - #{@student.id}"
-      render plain: "<p>Created id - #{@student.id} <br> Click <a href='/login'> Click Here</a> to Login</p>"
+      render plain: "Created id - #{@student.id} <br> Click <a href='/login'> Click Here</a> to Login"
     else
       errors = "ERRORS <br>"
       @student.errors.each do |attribute, message|
