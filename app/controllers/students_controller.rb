@@ -16,8 +16,8 @@ class StudentsController < ApplicationController
       render plain: "Created id - #{@student.id} <br> Click <a href='/login'> Click Here</a> to Login"
     else
       errors = "ERRORS <br>"
-      @student.errors.each do |attribute, message|
-        errors += "<li>#{attribute} - #{message}</li>"
+      @student.errors.each do |error|
+        errors += "<li>#{error.attribute} - #{error.message}</li>"
       end
       render plain: "#{errors} <br> Please fill the form again"
     end
